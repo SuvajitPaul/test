@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-sm" style="background-color: blueviolet;">
+    <div class="container">
+    <a class="navbar-brand" style="color:whitesmoke;" href="#">Suvajit Paul</a>
+    <button class="navbar-toggler d-lg-none" type="button" (click)="navbar()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon color1"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse justify-content-between" [ngClass]="{ 'show': isShown }">
+      <ul class="navbar-nav ml-auto text-center">
+        <li class="nav-item active">
+          <a class="nav-link colour" style="color:black;" routerLink="/user/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        
+        <li class="nav-item active">
+          <a class="nav-link colour1" style="color:black;" routerLink="/user/about">About <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="color:black;" routerLink="/user/gallery">CRUD <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="color:black;" routerLink="/user/contactus">Contact Us <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="color:black;" routerLink="/user/froala">Froala<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="color:black;" routerLink="/user/grid">Gridster<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="color:black;" routerLink="/user/chat">Chat<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="color:black;" routerLink="/user/datatable">DataTable<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="color:black;" routerLink="/user/profile">Profile<span class="sr-only">(current)</span></a>
+        </li>
+        <div>
+        <button *ngIf="role_id.role_id==1">Admin</button>
+        <button *ngIf="role_id.role_id==2">Manager</button>
+        <button *ngIf="role_id.role_id==3">User</button>
+        <button (click)="logout()">Logout</button>
+      </div>
+      </ul>
+      
+    </div>
+  </div>
+  </nav>
+  
+  

@@ -1,0 +1,359 @@
+<!-- <p>registration works!</p>
+
+
+
+<form [formGroup]="RegisterForm">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-8">
+                <input type="file" formControlName="inputFile" (change)="upload($event)" class="form-control">
+                <div *ngIf="RegisterForm.controls.inputFile.invalid &&  (RegisterForm.controls.inputFile.touched || isRegisterFormValid)"
+                    class="alert alert-danger">
+                    <div *ngIf="RegisterForm.controls.inputFile.errors">File is required</div>
+                </div>
+            </div>
+
+
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+            </div> -->
+
+<!-- <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+            </div>
+
+
+            <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+                <button type="button" class="btn btn-primary" (click)="task.pause()" [disabled]="state === 'paused'">Pause</button>
+                <button type="button" class="btn btn-primary" (click)="task.cancel()" [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="task.resume()" [disabled]="state === 'running'">Resume</button>
+            </div> -->
+
+
+<!-- 
+            <div class="col-md-4">
+        <input type='button' class="btn btn-success btn-block" (click)="delete()" value="delete">
+      </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" required>Last Name</label>
+        <input formControlName="LastName" type="text" class="form-control">
+    </div>
+    <div *ngIf="RegisterForm.controls.LastName.invalid && ((RegisterForm.controls.LastName.dirty || RegisterForm.controls.LastName.touched) || isRegisterFormValid)"
+        class="alert alert-danger">
+        <div *ngIf="RegisterForm.controls.LastName.errors?.required">
+            Last Name is required.
+        </div>
+        <div *ngIf="RegisterForm.controls.LastName.errors?.maxlength">
+            Last Name cannot be more than {{RegisterForm.controls.LastName.errors?.maxlength?.requiredLength}}
+            characters long.
+        </div>
+        <div *ngIf="RegisterForm.controls.LastName.errors?.minlength">
+            LastName must be at least 2 characters long.
+        </div>
+    </div>
+</form> -->
+
+<div class="image" style="background-image: url('./assets/siuli1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;">
+    <div class="container">
+
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <form [formGroup]="RegisterForm">
+                        <div class="form-group">
+                            <!-- <div><button (click)="closeMe()">Close</button></div> -->
+                            <h2 style="color:yellow;">Create account</h2>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" style="color:#ff4500;" required>First Name</label>
+                            <input formControlName="FirstName" type="text" class="form-control">
+                        </div>
+                        <!-- {{RegisterForm | json}} -->
+                        <div *ngIf="RegisterForm.controls.FirstName.invalid && ((RegisterForm.controls.FirstName.dirty || RegisterForm.controls.FirstName.touched) || isRegisterFormValid)"
+                            class="alert alert-danger">
+                            <div *ngIf="RegisterForm.controls.FirstName.errors?.required">
+                                First Name is required.
+                            </div>
+                            <div *ngIf="RegisterForm.controls.FirstName.errors?.maxlength">
+                                First Name cannot be more than
+                                {{RegisterForm.controls.FirstName.errors?.maxlength?.requiredLength}} characters long.
+                            </div>
+                            <div *ngIf="RegisterForm.controls.FirstName.errors?.minlength">
+                                FIrst Name must be at least 3 characters long.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" style="color:#ff4500;" required>Last Name</label>
+                            <input formControlName="LastName" type="text" class="form-control">
+                        </div>
+                        <div *ngIf="RegisterForm.controls.LastName.invalid && ((RegisterForm.controls.LastName.dirty || RegisterForm.controls.LastName.touched) || isRegisterFormValid)"
+                            class="alert alert-danger">
+                            <div *ngIf="RegisterForm.controls.LastName.errors?.required">
+                                Last Name is required.
+                            </div>
+                            <div *ngIf="RegisterForm.controls.LastName.errors?.maxlength">
+                                Last Name cannot be more than
+                                {{RegisterForm.controls.LastName.errors?.maxlength?.requiredLength}} characters long.
+                            </div>
+                            <div *ngIf="RegisterForm.controls.LastName.errors?.minlength">
+                                LastName must be at least 3 characters long.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" style="color:#ff4500;" required>User Name</label>
+                            <input formControlName="UserName" type="text" class="form-control">
+                        </div>
+                        <div *ngIf="RegisterForm.controls.UserName.invalid && ((RegisterForm.controls.UserName.dirty || RegisterForm.controls.UserName.touched) || isRegisterFormValid)"
+                            class="alert alert-danger">
+                            <div *ngIf="RegisterForm.controls.UserName.errors?.required">
+                                User Name is required.
+                            </div>
+                            <div *ngIf="RegisterForm.controls.UserName.errors?.maxlength">
+                                User Name cannot be more than
+                                {{RegisterForm.controls.UserName.errors?.maxlength?.requiredLength}} characters long.
+                            </div>
+                            <div *ngIf="RegisterForm.controls.UserName.errors?.minlength">
+                                User Name must be at least 2 characters long.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" style="color:#ff4500;" required>Phone Number</label>
+                            <input formControlName="Phonenumber" maxlength="10" minlength="10" type="text"
+                                class="form-control">
+                        </div>
+                        <div *ngIf="RegisterForm.controls.Phonenumber.invalid && ((RegisterForm.controls.Phonenumber.dirty || RegisterForm.controls.Phonenumber.touched) || isRegisterFormValid)"
+                            class="alert alert-danger">
+                            <div *ngIf="RegisterForm.controls.Phonenumber.errors?.required">
+                                Phone number is required.
+                            </div>
+                            <div *ngIf="RegisterForm.controls.Phonenumber.errors?.maxlength">
+                                Phone number cannot be more than 10.
+                            </div>
+                            <div *ngIf="RegisterForm.controls.Phonenumber.errors?.minlength">
+                                Phone number cannot be less than 10.
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+						<label class="control-label" for="dob" required>Date Of Birth *</label>
+						<input type="date" formControlName="dob" name="dob" id="dob"  class="form-control" >
+						<span id="error_dob" class="text-danger"></span>
+          </div> -->
+
+
+                        <div class="form-group">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Date of Birth<span style="color: red;"> *</span></mat-label>
+                                <input formControlName="dob" matInput [matDatepicker]="picker" [min]="minDate"
+                                    [max]="maxDate">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <div *ngIf="RegisterForm.controls.dob.invalid && ((RegisterForm.controls.dob.dirty || RegisterForm.controls.dob.touched) || isRegisterFormValid)"
+                                class="alert alert-danger">
+                                <div *ngIf="RegisterForm.controls.dob.errors?.required">
+                                    Date of Birth is required.
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="form-group">
+              <label class="control-label mb-6" for="Gender" required>Gender</label><br>
+              <input class="mb" type="radio" name="gender" formControlName="gender" value="male" checked> Male<br>
+              <input class="mb" type="radio" name="gender"  formControlName="gender" value="female"> Female<br>
+              <input class="mb" type="radio" name="gender" formControlName="gender" value="other"> Other
+            </div>
+              <div *ngIf="RegisterForm.controls.gender.invalid && isRegisterFormValid" class="alert alert-danger">
+      
+            Gender required.
+          </div> -->
+
+                        <div class="form-group">
+                            <label style="color:#ff4500;" class="control-label mb-6">Gender</label><br>
+                            <select formControlName="gender">
+
+                                <option value="">Choose your Gender</option>
+                                <option *ngFor="let gen of genderArray" [value]="gen.Gender">
+                                    {{gen.Gender}}
+                                </option>
+                            </select>
+                            <div *ngIf="RegisterForm.controls.gender.invalid &&  isRegisterFormValid"
+                                class="alert alert-danger">
+
+                                Gender required.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color:#ff4500;" class="control-label mb-6">Role</label><br>
+                            <select formControlName="role_id">
+
+                                <option value="">Choose your Role</option>
+                                <option *ngFor="let role of role" [value]="role.id">
+                                    {{role.Role}}
+                                </option>
+                            </select>
+                            <div *ngIf="RegisterForm.controls.role_id.invalid &&  isRegisterFormValid"
+                                class="alert alert-danger">
+
+                                Role required.
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="form-group">
+                            <label style="color:#ff4500;" class="control-label mb-6">Role</label><br>
+                            <select formControlName="role_id">
+
+                                <option value="">Choose your Role</option>
+                                <option *ngFor="let role of role" [value]="role.id">
+                                    {{role.Role}}
+                                </option>
+                            </select>
+                            <div *ngIf="RegisterForm.controls.role_id.invalid &&  isRegisterFormValid"
+                                class="alert alert-danger">
+
+                                Role required.
+                            </div>
+                        </div> -->
+
+
+
+
+
+                        <div class="form-group">
+                            <label style="color:#ff4500;" class="control-label" required>Email</label>
+                            <input formControlName="email" type="email" class="form-control">
+                        </div>
+
+                        <div *ngIf="RegisterForm.controls.email.invalid && ((RegisterForm.controls.email.dirty || RegisterForm.controls.email.touched) || isRegisterFormValid)"
+                            class="alert alert-danger">
+
+                            <div *ngIf="RegisterForm.controls.email.errors?.required">
+                                Email is required
+                            </div>
+                            <div *ngIf="RegisterForm.controls.email?.errors">Email must be a valid email address
+                               
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label style="color:#ff4500;" class="control-label" required>Password</label>
+                            <input formControlName="password" type=password 
+                                class="form-control" placeholder="at least 8 characters" length="40"
+                                >
+                        </div>
+                        <!-- <i class="fas fa-eye" (click)="togglefunction()"></i> -->
+
+                        <div *ngIf="RegisterForm.controls.password.invalid && ((RegisterForm.controls.password.dirty || RegisterForm.controls.password.touched) || isRegisterFormValid)"
+                            class="alert alert-danger">
+                            <div *ngIf="RegisterForm.controls.password.errors?.required">Password is required</div>
+                            <div *ngIf="RegisterForm.controls.password.errors?.minlength">Password must be at least 8
+                                characters</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color:#ff4500;" class="control-label" required>Confirm Password</label>
+                            <input formControlName="confirmPassword" type="password" 
+                                class="form-control">
+                        </div>
+                        <div *ngIf="RegisterForm.controls.confirmPassword.invalid && ((RegisterForm.controls.confirmPassword.dirty || RegisterForm.controls.confirmPassword.touched) || isRegisterFormValid)"
+                            class="alert alert-danger">
+                            <div *ngIf="RegisterForm.controls.confirmPassword.errors?.required">Confirm Password is
+                                required</div>
+
+                            <div
+                                *ngIf="(RegisterForm.controls.confirmPassword.errors?.mustMatch)||(RegisterForm.controls.confirmPassword.errors?.minlength)">
+                                Passwords must match</div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input type="file" formControlName="inputFile" (change)="upload($event)"
+                                        class="form-control">
+                                    <div *ngIf="RegisterForm.controls.inputFile.invalid &&  (RegisterForm.controls.inputFile.touched || isRegisterFormValid)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="RegisterForm.controls.inputFile.errors">File is required</div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div>
+                                    <button (click)="delete()">Delete</button>
+                                </div>
+                                <!-- <div class="progress" *ngIf="progressfile">
+                                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                        [style.width]="(uploadProgress | async) + '%'"
+                                        [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div> -->
+
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-group form-check">
+                            <input type="checkbox" formControlName="acceptTerms" class="form-check-input" required>
+                            <p style="color: #96c8a2" class="form-group">By creating an account, you agree to our <a
+                                    href="#">Terms of Use</a>
+                                and our <a href="#">Privacy Policy</a>.</p>
+                            <div *ngIf="RegisterForm.controls.acceptTerms.invalid &&  (RegisterForm.controls.acceptTerms.touched || isRegisterFormValid)"
+                                class="alert alert-danger">
+                                <div *ngIf="RegisterForm.controls.acceptTerms.errors">Accept Ts & Cs is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="button" (click)="value()" value="Submit" class="btn btn-info btn-block">
+                        </div>
+                        <div class="form-group">
+                            <button id="signupSubmit" type="reset" class="btn btn-success btn-block"
+                                (click)="reset()">Canncel</button>
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input type="file" formControlName="inputFile" [(ngModel)]="inputFile"
+                                        class="form-control">
+                                    <div *ngIf="RegisterForm.controls.inputFile.invalid &&  (RegisterForm.controls.inputFile.touched || isRegisterFormValid)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="RegisterForm.controls.inputFile.errors">Accept Ts & Cs is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type='button' class="btn btn-success btn-block" (click)="deleteImg()"
+                                        value="delete">
+                                </div>
+                            </div>
+                        </div> -->
+
+
+                        <hr>
+                        <p>Already have an account? <a href="#">Sign in</a></p>
+                    </form>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- {{Roles | json}} -->
+
+<!-- <div>{{formData | json}}</div> -->

@@ -1,0 +1,212 @@
+<app-user></app-user>
+<div class="jumbotron text center">
+    <h1>Angular Froala Editor</h1>
+</div>
+
+<p>Hello {{data}}</p>
+
+
+<div class="container">
+
+  <div>
+      <form [formGroup]="formdata" >
+          <label>SEND Message</label>
+        <angular-editor [placeholder]="message" formControlName="message" [config]="editorConfig">
+
+        </angular-editor>
+        <button type="submit" (click)="msgdata()">SEND</button>
+      </form>
+  </div>
+  <div *ngIf="msg?.length>0">
+    <div ><b>Message</b></div>
+    <ul>
+    <div *ngFor="let item of msg;let i = index;">
+       <li> {{item.message}} from {{item.user}}<div *ngIf="item.user==data"><button (click)="delete(item.id)">Delete</button></div></li>
+       
+    </div>
+    </ul>
+    
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

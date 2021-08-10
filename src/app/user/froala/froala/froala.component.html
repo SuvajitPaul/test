@@ -1,0 +1,24 @@
+<app-user></app-user>
+
+<div class="jumbotron text center">
+    <h1>Angular Froala Editor</h1>
+</div>
+
+<div class="container">
+
+
+    <div [froalaEditor] [(froalaModel)]="editorContent">
+        
+       
+    </div>
+    <div>
+        <button (click)="submitData()">Click</button>
+       
+    </div>
+    <div [froalaView]="editorContent" *ngIf="data">
+        
+       
+    </div>
+
+</div>
+

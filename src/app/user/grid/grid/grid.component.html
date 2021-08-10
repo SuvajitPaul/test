@@ -1,0 +1,33 @@
+<app-user></app-user>
+<div class="toolbar">
+    <button (click)="addItem()">Add Item</button>
+</div>
+<gridster [options]="options">
+  <gridster-item *ngFor="let item of layout" [item]="item">
+    <button
+    (click)="deleteItem(item)">
+  
+    Delete Item
+  </button>
+  
+  </gridster-item>
+</gridster>
+
+<!-- <div class="toolbar">
+  <button (click)="addItem()">Add Item</button>
+  <div class="draggable" draggable="true" (dragend)="dropItem('example1')">
+    Example 1
+  </div>
+  <div class="draggable" draggable="true" (dragend)="dropItem('example2')">
+    Example 2
+  </div>
+</div>
+<gridster [options]="options">
+  <gridster-item *ngFor="let item of layout" [item]="item" (dragover)="setDropId(item.id)">
+    <input appLayoutItem [componentRef]="getComponentRef(item.id)">
+
+    <button (click)="deleteItem(item)">
+      Delete Item
+    </button>
+  </gridster-item>
+</gridster> -->

@@ -1,0 +1,156 @@
+<app-user></app-user>
+<p>profile works!</p>
+<div>
+  <table class="table table-striped">
+    <thead>
+
+      <tr>
+
+        <th scope="col" class="text-center">First Name</th>
+        <th scope="col" class="text-center">Last Name</th>
+
+        <th scope="col" class="text-center">Email ID</th>
+        <th scope="col" class="text-center">Phone Number</th>
+        <th scope="col" class="text-center">Username</th>
+        <th scope="col" class="text-center">Date of Birth</th>
+        <th scope="col" class="text-center">Gender</th>
+        <th scope="col" class="text-center">Role</th>
+        
+        <th scope="col" class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td>{{details.FirstName}}</td>
+        <td>{{details.LastName}}</td>
+        <td>{{details.email}}</td>
+        <td>{{details.Phonenumber}}</td>
+        <td>{{details.UserName}}</td>
+        <td>{{details.dob| date }}</td>
+        <td>{{details.gender}}</td>
+        <td *ngIf="details.role_id==1">Admin</td>
+        <td *ngIf="details.role_id==2">Manager</td>
+        <td *ngIf="details.role_id==3">User</td>
+        <td><button (click)="Updaterecord(details)" type="submit" class="btn btn-success">Edit</button></td>
+
+      </tr>
+      
+
+        
+
+     
+
+    </tbody>
+  </table>
+</div>
+
+
+
+<div>
+  <form [formGroup]="profileupdateForm">
+    <div *ngIf="edit">
+
+      <!-- <div *ngFor="let items of studentupdate;let i=index"> -->
+      <div class="row">
+        <div class="col-lg-5 col-md-12 col-sm-12">
+          <div class="row">
+
+            <input type="hidden" formControlName="id" class="form-control" required>
+
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label>Email</label>
+              <input type="email" formControlName="email" class="form-control" required>
+
+              <!-- errors-->
+              <p *ngIf="profileupdateForm.controls.email.invalid" class="error"><sup>*</sup>Please provide email</p>
+              <p *ngIf="profileupdateForm.controls.email.errors?.pattern" class="error"><sup>*</sup>Please enter correct
+                email</p>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <label>Mobile number</label>
+              <input type="text" formControlName="Phonenumber" class="form-control" required>
+
+              <!-- errors-->
+              <p *ngIf="profileupdateForm.controls.Phonenumber.invalid" class="error"><sup>*</sup>Please provide contact
+                number</p>
+              <p *ngIf="profileupdateForm.controls.Phonenumber.errors?.pattern" class="error"><sup>*</sup>Use numbers
+                only
+                number</p>
+            </div>
+
+          </div>
+            
+        </div>
+        
+      </div>
+     
+      <button type="submit" (click)="cancel()" class="btn btn-danger">Cancel</button>
+      <button type="submit" (click)="update()" class="btn btn-primary">Update</button>
+      <div><button (click)="chnpassword()">Change Password</button></div>
+      <!-- </div> -->
+      <div *ngIf="pass">
+        <div class="col-md-12 mb-3">
+          <label style="color:#ff4500;" class="control-label">Old Password</label>
+          <input type="password" formControlName="oldpassword" class="form-control" required>
+
+          <!-- errors-->
+          <div
+        *ngIf="profileupdateForm.controls.oldpassword.invalid && ((profileupdateForm.controls.password.dirty || profileupdateForm.controls.password.touched || isRegisterFormValid))"
+        class="alert alert-danger">
+        <div *ngIf="profileupdateForm.controls.oldpassword.errors?.required">Old Password is required</div>
+        <div *ngIf="profileupdateForm.controls.oldpassword.errors?.minlength">Old Password must be at least 8
+          characters</div>
+      </div>
+        </div>
+     
+
+      <div class="form-group">
+        <label style="color:#ff4500;" class="control-label" required>Password</label>
+        <input formControlName="password" type=password class="form-control" placeholder="at least 8 characters"
+          length="40">
+      </div>
+      <!-- <i class="fas fa-eye" (click)="togglefunction()"></i> -->
+
+      <div
+        *ngIf="profileupdateForm.controls.password.invalid && ((profileupdateForm.controls.password.dirty || profileupdateForm.controls.password.touched || isRegisterFormValid))"
+        class="alert alert-danger">
+        <div *ngIf="profileupdateForm.controls.password.errors?.required">Password is required</div>
+        <div *ngIf="profileupdateForm.controls.password.errors?.minlength">Password must be at least 8
+          characters</div>
+      </div>
+
+      <div class="form-group">
+        <label style="color:#ff4500;" class="control-label" required>Confirm Password</label>
+        <input formControlName="confirmPassword" type="password" class="form-control">
+      </div>
+      <div
+        *ngIf="profileupdateForm.controls.confirmPassword.invalid && ((profileupdateForm.controls.confirmPassword.dirty || profileupdateForm.controls.confirmPassword.touched || isRegisterFormValid))"
+        class="alert alert-danger">
+        <div *ngIf="profileupdateForm.controls.confirmPassword.errors?.required">Confirm Password is
+          required</div>
+
+        <div
+          *ngIf="(profileupdateForm.controls.confirmPassword.errors?.mustMatch)||(profileupdateForm.controls.confirmPassword.errors?.minlength)">
+          Passwords must match</div>
+      </div>
+
+
+      <div class="form-group">
+        
+        <input type="button" (click)="passwordupdate()" value="Update Password" class="btn btn-primary">
+      
+      
+        <button id="signupSubmit" type="reset" class="btn btn-warning"
+            (click)="resetpassword()">Canncel</button>
+       </div>
+       <div><ngx-spinner></ngx-spinner></div>
+    </div>
+  </div>
+  </form>
+</div>

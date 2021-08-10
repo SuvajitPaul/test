@@ -1,0 +1,12 @@
+[
+    {"name" : "Maharastha" , "id" : 1, "country_id":1 },
+    {"name" : "Assam" , "id" : 2, "country_id":1 } ,
+    {"name" : "WB" , "id" : 3 , "country_id":1},
+    {"name" : "California" , "id" : 4, "country_id":2 },
+    {"name" : "Florida" , "id" : 5, "country_id":2 } ,
+    {"name" : "Alaska" , "id" : 6 , "country_id":2},
+    {"name" : "London" , "id" : 7 , "country_id":3},
+    {"name" : "Edinburgh" , "id" : 8 , "country_id":3},
+    {"name" : "Cardiff" , "id" : 9 , "country_id":3}
+    
+]

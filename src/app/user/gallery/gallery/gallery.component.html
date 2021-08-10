@@ -1,0 +1,201 @@
+<app-user></app-user>
+
+  <div *ngIf="addstudent">
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+      <h2 class="h2">Add Student</h2>
+    </div>
+
+    <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
+      <div class="row">
+        <div class="col-lg-5 col-md-12 col-sm-12">
+          <div class="row">
+
+            <div class="col-md-12 mb-3">
+              <label>First name</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+
+              <!-- errors-->
+              <p *ngIf="studentForm.controls.firstName.invalid" class="error"><sup>*</sup>Please enter atleast first
+                name
+              </p>
+              <p *ngIf="studentForm.controls.firstName.errors?.minlength" class="error"><sup>*</sup>Name shouldn't be
+                less
+                than 2 words</p>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <label>Last name</label>
+              <input type="text" formControlName="lastName" class="form-control">
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label>Email</label>
+              <input type="email" formControlName="email" class="form-control" required>
+
+              <!-- errors-->
+              <p *ngIf="studentForm.controls.email.invalid" class="error"><sup>*</sup>Please provide email</p>
+              <p *ngIf="studentForm.controls.email.errors?.pattern" class="error"><sup>*</sup>Please enter correct email
+              </p>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <label>Mobile number</label>
+              <input type="text" formControlName="mobileNumber" class="form-control" required>
+
+              <!-- errors-->
+              <p *ngIf="studentForm.controls.mobileNumber.invalid" class="error"><sup>*</sup>Please provide contact
+                number</p>
+              <p *ngIf="studentForm.controls.mobileNumber.errors?.pattern" class="error"><sup>*</sup>Use numbers only
+                number</p>
+            </div>
+
+          </div>
+
+          <div class="form-group text-right">
+            <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
+            <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Add Student</button>
+          </div>
+
+        </div>
+      </div>
+      <button type="submit" *ngIf="!showData" (click)="showdata()" class="btn btn-success">Show data</button>
+      <button type="submit" *ngIf="showData" (click)="collapse()" class="btn btn-success">Collapse</button>
+      <!-- <div class="table-responsive" *ngIf="hideWhenNoStudent">
+        <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+          <thead>
+            <tr>
+              <th scope="col">Student Id</th>
+              <th scope="col">Student name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile number</th>
+              <th class="text-center" scope="col">Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr *ngFor="let student of Student">
+              <th scope="row">{{student.$key}}</th>
+              <td>{{student.firstName}} {{student.lastName}}</td>
+              <td>{{student.email}}</td>
+              <td>{{student.mobileNumber}}</td>
+              <td class="text-center action-block">
+                <span class="mr-2 btn btn-outline-primary btn-sm" routerLink="/edit-student/{{student.$key}}">Edit</span> 
+                <span class="btn btn-outline-danger btn-sm" (click)="deleteStudent(student)">Delete</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div> -->
+
+
+
+
+    </form>
+
+  </div>
+
+
+
+
+
+<!-- <div *ngIf="showData">
+  <div *ngIf="showmsg==true">
+    No data present
+  </div> -->
+  <div *ngIf="showData">
+    <table class="table table-striped">
+      <thead>
+
+        <tr>
+
+          <th scope="col" class="text-center">First Name</th>
+          <th scope="col" class="text-center">Last Name</th>
+
+          <th scope="col" class="text-center">Email ID</th>
+          <th scope="col" class="text-center">Phone Number</th>
+          <th scope="col" class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of student;let i = index;">
+          <!-- <td>{{abc.fullName}}</td> -->
+          <!-- <td>{{i+1}}</td> -->
+          <td>{{item.firstName}}</td>
+          <td>{{item.lastName}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.mobileNumber}}</td>
+
+          <td><button (click)="Updaterecord(item)" type="submit" class="btn btn-success">Edit</button></td>
+          <td><button (click)="Deleterecord(item.id,i)" class="btn btn-danger">Delete</button></td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+<div *ngIf="edit">
+  <form [formGroup]="studentupdateForm">
+    <!-- <div *ngFor="let items of studentupdate;let i=index"> -->
+    <div class="row">
+      <div class="col-lg-5 col-md-12 col-sm-12">
+        <div class="row">
+
+          <input type="hidden" formControlName="id" class="form-control" required>
+
+          <div class="col-md-12 mb-3">
+            <label>First name</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+
+            <!-- errors-->
+            <p *ngIf="studentupdateForm.controls.firstName.invalid" class="error"><sup>*</sup>Please enter atleast first
+              name
+            </p>
+            <p *ngIf="studentupdateForm.controls.firstName.errors?.minlength" class="error"><sup>*</sup>Name shouldn't be
+              less
+              than 2 words</p>
+          </div>
+
+          <div class="col-md-12 mb-3">
+            <label>Last name</label>
+            <input type="text" formControlName="lastName" class="form-control">
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label>Email</label>
+            <input type="email" formControlName="email" class="form-control" required>
+
+            <!-- errors-->
+            <p *ngIf="studentupdateForm.controls.email.invalid" class="error"><sup>*</sup>Please provide email</p>
+            <p *ngIf="studentupdateForm.controls.email.errors?.pattern" class="error"><sup>*</sup>Please enter correct
+              email</p>
+          </div>
+
+          <div class="col-md-12 mb-3">
+            <label>Mobile number</label>
+            <input type="text" formControlName="mobileNumber" class="form-control" required>
+
+            <!-- errors-->
+            <p *ngIf="studentupdateForm.controls.mobileNumber.invalid" class="error"><sup>*</sup>Please provide contact
+              number</p>
+            <p *ngIf="studentupdateForm.controls.mobileNumber.errors?.pattern" class="error"><sup>*</sup>Use numbers only
+              number</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <button type="submit" (click)="cancel()" class="btn btn-danger">Cancel</button>
+    <button type="submit" (click)="update()" class="btn btn-primary">Update</button>
+    <!-- </div> -->
+  </form>
+</div>

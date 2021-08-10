@@ -1,0 +1,69 @@
+<form [formGroup]="Loginform">
+    <h3 class="text-center text-info">Login</h3>
+    <div class="form-group">
+        <label for="username" class="text-info">Username:</label><br>
+        <input type="text" formControlName="username" id="username" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label for="password" class="text-info">Password:</label><br>
+        <input type="password" formControlName="password" id="password" class="form-control">
+    </div>
+    <div class="form-group">
+        <button (click)="mydata()">Click</button>
+      </div>
+      <!-- <div class="form-group">
+        <button (click)="regdata()">RegisterLogin</button>
+      </div> -->
+
+      <button (click)="googlelogin()">Login withh Google</button>
+      
+
+      <button class="btn btn-primary" (click)="openModal()">Register</button>
+      
+
+
+    
+    </form>
+
+    <div class="loading" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+
+
+    <div class="form-group">
+        <div class="row">
+          <div  class="col-md-4">
+            <select   [(ngModel)]='selectedCountry.country' (change)="getcountryId($event)">
+              <option value="0">Select</option>
+              <option *ngFor="let con of country" [value]="con.id">
+                {{con.name}}
+              </option>
+            </select>
+            <!-- <div *ngIf="RegisterForm.controls.selectedCountry.invalid && isRegisterFormValid" class="alert alert-danger">
+              Country required.
+            </div> -->
+          </div>
+          <div  class="col-md-4">
+            <select [(ngModel)]='selectedState' (change)="getstateId()">
+              <option value="0">Select</option>
+              <option *ngFor="let st of state" [value]="st.id">
+                {{st.name}}
+              </option>
+            </select>
+            <!-- <div *ngIf="RegisterForm.controls.selectedState.invalid && isRegisterFormValid" class="alert alert-danger">
+              State required.
+            </div> -->
+          </div>
+          <div  class="col-md-4">
+            <select [(ngModel)]='selectedCity'>
+              <option value="0">Select</option>
+              <option *ngFor="let city of city" [value]="city.id">
+                {{city.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      
+    

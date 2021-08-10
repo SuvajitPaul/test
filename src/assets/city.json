@@ -1,0 +1,12 @@
+[
+    {"name" : "Kolkata" , "id" : 1,"country_id":1,"state_id":1},
+    {"name" : "Mumbai" , "id" : 2 ,"country_id":1,"state_id":1} ,
+    {"name" : "Chennai" , "id" : 3 ,"country_id":1,"state_id":3},
+    {"name" : "Texas" , "id" : 4 ,"country_id":2,"state_id":4},
+    {"name" : "Westina" , "id" : 5 ,"country_id":2,"state_id":5},
+    {"name" : "DC Washington" , "id" : 6 ,"country_id":2,"state_id":6},
+    {"name" : "Pennyselvia" , "id" : 7 ,"country_id":2,"state_id":7},
+    {"name" : "Manchester" , "id" : 8 ,"country_id":3,"state_id":8},
+    {"name" : "Bristol" , "id" : 9 ,"country_id":3,"state_id":9},
+    {"name" : "Glasgow" , "id" : 10 ,"country_id":3,"state_id":10}
+]
